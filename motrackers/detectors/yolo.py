@@ -26,7 +26,7 @@ class YOLOv3(Detector):
         if cv.__version__ >= '4.6.0':
             self.layer_names = [layer_names[i - 1] for i in self.net.getUnconnectedOutLayers()]
         else:
-            self.layer_names = [layer_names[i - 1] for i in self.net.getUnconnectedOutLayers()]
+            self.layer_names = [layer_names[i[0] - 1] for i in self.net.getUnconnectedOutLayers()]
 
         self.scale_factor = 1/255.0
         self.image_size = (416, 416)
